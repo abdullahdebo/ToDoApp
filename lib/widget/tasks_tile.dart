@@ -22,7 +22,7 @@ class TaskTile extends StatelessWidget {
         ),
       ),
       trailing: Checkbox(
-        activeColor: Colors.teal[400],
+        activeColor: Colors.teal[600],
         value: isCheked,
         onChanged: checkboxChanged,
       ),
