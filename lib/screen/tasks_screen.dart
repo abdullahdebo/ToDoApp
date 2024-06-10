@@ -2,12 +2,24 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todaydo_app/models/task.dart';
 import 'package:todaydo_app/screen/add_task_screen.dart';
 
 import '../widget/tasks_list.dart';
 
-class TasksScreen extends StatelessWidget {
+class TasksScreen extends StatefulWidget {
   TasksScreen({super.key});
+
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
+  List<Task> tasks = [
+    Task(name: 'Go shopping'),
+    Task(name: 'Buy a Gift'),
+    Task(name: 'Eat Burger'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +87,7 @@ class TasksScreen extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
-                child: TasksList(),
+                child: TasksList(tasks),
               ),
             ),
           ],

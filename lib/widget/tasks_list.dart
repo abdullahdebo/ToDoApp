@@ -3,31 +3,25 @@ import 'package:todaydo_app/models/task.dart';
 import 'package:todaydo_app/widget/tasks_tile.dart';
 
 class TasksList extends StatefulWidget {
-  const TasksList({
-    super.key,
-  });
+  final List<Task> tasks;
+  TasksList(this.tasks);
 
   @override
   State<TasksList> createState() => _TasksListState();
 }
 
 class _TasksListState extends State<TasksList> {
-  List<Task> tasks = [
-    Task(name: 'Go shopping'),
-    Task(name: 'Buy a Gift'),
-    Task(name: 'Eat Burger'),
-  ];
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: tasks.length,
+      itemCount: widget.tasks.length,
       itemBuilder: (context, index) {
         return TaskTile(
-            isCheked: tasks[index].isDone,
-            taskTitle: tasks[index].name,
+            isCheked: widget.tasks[index].isDone,
+            taskTitle: widget.tasks[index].name,
             checkboxChanged: (newValue) {
               setState(() {
-                tasks[index].doneChange();
+                widget.tasks[index].doneChange();
               });
             });
       },
