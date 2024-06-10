@@ -1,6 +1,6 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todaydo_app/models/task.dart';
 import 'package:todaydo_app/screen/add_task_screen.dart';
@@ -8,7 +8,7 @@ import 'package:todaydo_app/screen/add_task_screen.dart';
 import '../widget/tasks_list.dart';
 
 class TasksScreen extends StatefulWidget {
-  TasksScreen({super.key});
+  const TasksScreen({super.key});
 
   @override
   State<TasksScreen> createState() => _TasksScreenState();
@@ -34,7 +34,12 @@ class _TasksScreenState extends State<TasksScreen> {
                 child: Container(
                     padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom),
-                    child: AddTasksScreen())),
+                    child: AddTasksScreen((newTaskTitle) {
+                      setState(() {
+                        tasks.add(Task(name: newTaskTitle));
+                        Navigator.pop(context);
+                      });
+                    }))),
           );
         },
         backgroundColor: Colors.indigo[400],

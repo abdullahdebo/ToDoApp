@@ -8,7 +8,8 @@ class TaskTile extends StatelessWidget {
   final void Function(bool?) checkboxChanged;
 
   TaskTile(
-      {required this.isCheked,
+      {super.key,
+      required this.isCheked,
       required this.taskTitle,
       required this.checkboxChanged});
 

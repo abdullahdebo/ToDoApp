@@ -4,7 +4,7 @@ import 'package:todaydo_app/widget/tasks_tile.dart';
 
 class TasksList extends StatefulWidget {
   final List<Task> tasks;
-  TasksList(this.tasks);
+  const TasksList(this.tasks, {super.key});
 
   @override
   State<TasksList> createState() => _TasksListState();
