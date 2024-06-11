@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todaydo_app/models/task_data.dart';
 
 class AddTasksScreen extends StatelessWidget {
   final Function addTaskCallback;
@@ -50,7 +52,9 @@ class AddTasksScreen extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                addTaskCallback(newTaskTitle);
+                Provider.of<TasksData>(context, listen: false)
+                    .addTask(newTaskTitle!);
+                Navigator.pop(context);
               },
             ),
           )
