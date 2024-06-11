@@ -6,12 +6,14 @@ class TaskTile extends StatelessWidget {
   final bool isCheked;
   final String taskTitle;
   final void Function(bool?) checkboxChanged;
+  final void Function() listTileDelete;
 
   TaskTile(
       {super.key,
       required this.isCheked,
       required this.taskTitle,
-      required this.checkboxChanged});
+      required this.checkboxChanged,
+      required this.listTileDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class TaskTile extends StatelessWidget {
         value: isCheked,
         onChanged: checkboxChanged,
       ),
+      onLongPress: listTileDelete,
     );
   }
 }
